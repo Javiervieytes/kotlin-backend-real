@@ -19,7 +19,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/api/resenas")
+@RequestMapping("/api/v1/resenas")
 @Tag(name = "Resena Controller", description = "Operaciones CRUD para Resenas")
 public class ResenaController {
 
@@ -62,3 +62,4 @@ public class ResenaController {
         resenaService.deleteResena(id);
     }
 }
+
