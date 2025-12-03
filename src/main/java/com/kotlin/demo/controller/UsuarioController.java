@@ -19,7 +19,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/v1/users")
 @Tag(name = "Usuario Controller", description = "Operaciones CRUD para Usuarios")
 public class UsuarioController {
 
@@ -63,3 +63,4 @@ public class UsuarioController {
         usuarioService.deleteUser(id);
     }
 }
+
