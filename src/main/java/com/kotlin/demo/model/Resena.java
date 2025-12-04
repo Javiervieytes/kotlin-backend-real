@@ -18,6 +18,8 @@ public class Resena {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String contenido;
-    private String clasificacion;
+    private String title;
+    private String description;
+    private String categoria;
 }
+
