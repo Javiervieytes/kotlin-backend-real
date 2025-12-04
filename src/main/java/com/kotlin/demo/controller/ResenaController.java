@@ -49,8 +49,9 @@ public class ResenaController {
     public Resena updateResena(@PathVariable Long id, @RequestBody Resena resena) {
         Resena existingResena = resenaService.getResenaById(id);
         if (existingResena != null) {
-            existingResena.setContenido(resena.getContenido());
-            existingResena.setClasificacion(resena.getClasificacion());
+            existingResena.setTitle(resena.getTitle());
+            existingResena.setDescription(resena.getDescription());
+            existingResena.setCategoria(resena.getCategoria());
             return resenaService.saveResena(existingResena);
         }
         return null; 
@@ -62,4 +63,5 @@ public class ResenaController {
         resenaService.deleteResena(id);
     }
 }
+
 
