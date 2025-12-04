@@ -1,5 +1,6 @@
 package com.kotlin.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,5 +21,8 @@ public class Usuario {
 
     private String name;
     private String correo;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String contrasena;
 }
+
