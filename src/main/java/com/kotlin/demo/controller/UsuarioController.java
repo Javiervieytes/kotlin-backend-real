@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kotlin.demo.dto.LoginRequest;
 import com.kotlin.demo.model.Usuario;
 import com.kotlin.demo.service.UsuarioService;
 
@@ -21,6 +22,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/api/v1/users")
 @Tag(name = "Usuario Controller", description = "Operaciones CRUD para Usuarios")
+
+
 public class UsuarioController {
 
     @Autowired
@@ -44,6 +47,19 @@ public class UsuarioController {
         return usuarioService.saveUser(usuario);
     }
 
+    @PostMapping("/login")
+    @Operation(summary = "Login de usuario")
+    public Usuario login(@RequestBody LoginRequest request) {
+        Usuario usuario = usuarioService.login(request.getCorreo(), request.getContrasena());
+    
+    if (usuario != null) {
+        return usuario; 
+    } else {
+
+        return null; 
+    }
+}
+
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar un Usuario existente")
     public Usuario updateUser(@PathVariable Long id, @RequestBody Usuario usuario) {
@@ -63,4 +79,6 @@ public class UsuarioController {
         usuarioService.deleteUser(id);
     }
 }
+
+
 
